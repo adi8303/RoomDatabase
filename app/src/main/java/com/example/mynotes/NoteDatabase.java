@@ -22,7 +22,8 @@ public abstract class NoteDatabase extends RoomDatabase{
 //    singleton: means we cant create multiple instances of database
 //            instead we will always use the same instance everywhere
 
-    public abstract  NoteDao noteDao(); // to access dao
+    public abstract  NoteDao noteDao(); // to access dao and dont need to provide body becz.
+//    room takes of it.
 
     public static synchronized NoteDatabase getInstance(Context context){
        // syn. means only one thread at a time can get access to the database.
