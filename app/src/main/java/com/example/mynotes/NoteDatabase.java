@@ -25,6 +25,8 @@ public abstract class NoteDatabase extends RoomDatabase{
     public abstract  NoteDao noteDao(); // to access dao and dont need to provide body becz.
 //    room takes of it.
 
+
+
     public static synchronized NoteDatabase getInstance(Context context){
        // syn. means only one thread at a time can get access to the database.
 
