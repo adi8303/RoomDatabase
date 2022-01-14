@@ -45,7 +45,8 @@ private NoteViewModel noteViewModel;
         recyclerView.setAdapter(adapter);
 
 //        asking android sys. for viewmodel
-        NoteViewModel noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
+       // NoteViewModel noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);// Due to this the app got cloased every time the user inserts the data in it.
+        noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
 
     noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
@@ -75,3 +76,4 @@ private NoteViewModel noteViewModel;
         }
     }
 }
+

@@ -16,7 +16,7 @@ public class NoteRepository {
         NoteDatabase database = NoteDatabase.getInstance(application); //    passing appln. as context
 //        we can call notedao instead it is an abstract class becz. we have create instanceof
 //        roomdb so room autogenerates all the code required.
-        noteDao = database.noteDao();
+        noteDao = database.noteDao();  //getting notes from database.noteDao();
         allNotes = noteDao.getAllNotes();
 
     }
@@ -69,7 +69,7 @@ public class NoteRepository {
         }
         @Override
         protected Void doInBackground(Note... notes) {
-            noteDao.insert(notes[0]);
+            noteDao.update(notes[0]);
             return null;
         }
     }
@@ -77,11 +77,12 @@ public class NoteRepository {
         private NoteDao noteDao;
 
         private  DeleteNoteAsyncTask(NoteDao noteDao){
+
             this.noteDao=noteDao;
         }
         @Override
         protected Void doInBackground(Note... notes) {
-            noteDao.insert(notes[0]);
+            noteDao.delete(notes[0]);
             return null;
         }
     }
@@ -93,7 +94,7 @@ public class NoteRepository {
         }
         @Override
         protected Void doInBackground(Note... notes) {
-            noteDao.insert(notes[0]);
+            noteDao.deleteAllNotes();
             return null;
         }
     }
